@@ -28,21 +28,25 @@
 
 / {
     // 上下滚动编码器行为
+
     scroll_vertical_encoder: scroll_vertical_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
         bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+
         tap-ms = <100>;
     };
 
     // 左右滚动编码器行为
+
     scroll_horizontal_encoder: scroll_horizontal_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
         bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
+
         tap-ms = <100>;
     };
-    
+
     behaviors {
     };
 
@@ -70,7 +74,9 @@
 &trans   &trans  &trans  &trans  &trans  &trans  &mkp LCLK  &mkp RCLK  &trans  &trans  &trans   &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings =
+                <&inc_dec_kp LC(PLUS) LC(MINUS)>,
+                <&inc_dec_kp PG_UP PG_DN>;
         };
 
         BT_layers {
@@ -106,8 +112,11 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
 
-            sensor-bindings = <&scroll_vertical_encoder>,   // 编码器1：上下滚动
-                             <&scroll_horizontal_encoder>;  // 编码器2：左右滚动
+            sensor-bindings =
+                <&scroll_vertical_encoder>,
+                // 编码器1：上下滚动,
+                <&scroll_horizontal_encoder>;
+  // 编码器2：左右滚动
         };
     };
 };
