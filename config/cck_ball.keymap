@@ -1,5 +1,5 @@
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1000 
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 12   
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1000
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 12
 
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
@@ -9,12 +9,13 @@
 #include <dt-bindings/zmk/pointing.h>
 
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
+
 &msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
 
 &msc {
-    acceleration-exponent = <0>;      
-    time-to-max-speed-ms = <300>;       
-    delay-ms = <0>;                   
+    acceleration-exponent = <0>;
+    time-to-max-speed-ms = <300>;
+    delay-ms = <0>;
 };
 
 &mmv {
@@ -30,6 +31,7 @@
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
         bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+
         tap-ms = <100>;
     };
 
@@ -37,6 +39,7 @@
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
         bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
+
         tap-ms = <100>;
     };
 
@@ -48,23 +51,25 @@
 
         QWERTY {
             bindings = <
-&kp ESC           &kp N1        &kp N2        &kp N3     &kp N4      &kp N5            &kp N6          &kp N7  &kp N8     &kp N9          &kp N0        &kp BACKSPACE
-&kp TAB           &kp Q         &kp W         &kp E      &kp R       &kp T             &kp Y           &kp U   &kp I      &kp O           &kp P         &kp BSLH
-&mo 1             &kp A         &kp S         &kp D      &kp F       &kp G             &kp H           &kp J   &kp K      &kp L           &kp SEMI      &kp SQT
-&kp LEFT_SHIFT    &kp Z         &kp X         &kp C      &kp V       &kp B             &kp N           &kp M   &kp COMMA  &kp DOT         &kp UP_ARROW  &kp FSLH
-&kp LEFT_CONTROL  &kp LEFT_WIN  &kp LEFT_ALT  &kp SPACE  &kp DELETE  &kp MUHENKAN      &kp HENKAN      &mo 2   &kp SPACE  &kp LEFT_ARROW  &kp DOWN      &kp RETURN
+&kp ESC           &kp N1        &kp N2        &kp N3     &kp N4      &kp N5   &kp N6   &kp N7  &kp N8     &kp N9    &kp N0     &kp BACKSPACE
+&kp TAB           &kp Q         &kp W         &kp E      &kp R       &kp T    &kp Y    &kp U   &kp I      &kp O     &kp P      &kp BSLH
+&mo 1             &kp A         &kp S         &kp D      &kp F       &kp G    &kp H    &kp J   &kp K      &kp L     &kp SEMI   &kp SQT
+&kp LEFT_SHIFT    &kp Z         &kp X         &kp C      &kp V       &kp B    &kp N    &kp M   &kp COMMA  &kp DOT   &kp MINUS  &kp FSLH
+&kp LEFT_CONTROL  &kp LEFT_WIN  &kp LEFT_ALT  &kp SPACE  &kp DELETE  &kp F13  &kp F14  &mo 2   &kp SPACE  &kp FSLH  &kp EQUAL  &kp RETURN
             >;
+
             sensor-bindings = <&scroll_vertical_encoder &scroll_horizontal_encoder>;
         };
 
         F_layers {
             bindings = <
-&kp F12  &kp F1  &kp F2  &kp F3    &kp F4    &kp F5  &kp F6     &kp F7     &kp F8          &kp F9          &kp F10  &kp F11
-&kp A    &none   &none   &mkp MB2  &mkp MB1  &trans  &mkp MB1   &mkp MB2   &kp UP          &trans          &trans   &trans
-&trans   &none   &none   &none     &none     &trans  &mkp LCLK  &kp LEFT   &kp DOWN_ARROW  &kp RIGHT_ARROW &trans   &trans
-&trans   &trans  &trans  &trans    &trans    &none   &none      &none      &trans          &trans          &none    &trans
-&trans   &trans  &trans  &trans    &trans    &trans  &mkp LCLK  &mkp RCLK  &trans          &trans          &trans   &bootloader
+&kp F12  &kp F1  &kp F2  &kp F3    &kp F4    &kp F5  &kp F6     &kp F7     &kp F8          &kp F9           &kp F10  &kp F11
+&kp A    &none   &none   &mkp MB2  &mkp MB1  &trans  &mkp MB1   &mkp MB2   &kp UP          &trans           &trans   &trans
+&trans   &none   &none   &none     &none     &trans  &mkp LCLK  &kp LEFT   &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans   &trans
+&trans   &trans  &trans  &trans    &trans    &none   &none      &none      &trans          &trans           &none    &trans
+&trans   &trans  &trans  &trans    &trans    &trans  &mkp LCLK  &mkp RCLK  &trans          &trans           &trans   &bootloader
             >;
+
             sensor-bindings = <&inc_dec_kp LC(PLUS) LC(MINUS) &inc_dec_kp PG_UP PG_DN>;
         };
 
@@ -76,6 +81,7 @@
 &trans       &trans          &trans        &bt BT_CLR    &trans        &trans        &bt BT_NXT  &trans  &trans  &trans  &trans  &trans
 &bootloader  &trans          &trans        &trans        &trans        &trans        &trans      &trans  &trans  &trans  &trans  &bootloader
             >;
+
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
     };
