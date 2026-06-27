@@ -9,7 +9,6 @@
 #include <dt-bindings/zmk/pointing.h>
 
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
-
 &msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
 
 &msc {
@@ -27,23 +26,17 @@
 &soft_off { hold-time-ms = <2000>; };
 
 / {
-    // 上下滚动编码器行为
-
     scroll_vertical_encoder: scroll_vertical_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
         bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
-
         tap-ms = <100>;
     };
-
-    // 左右滚动编码器行为
 
     scroll_horizontal_encoder: scroll_horizontal_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
         bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
-
         tap-ms = <100>;
     };
 
@@ -53,6 +46,9 @@
     keymap {
         compatible = "zmk,keymap";
 
+        // ここでスクロールの動作を紐付けています
+        sensors = <&scroll_vertical_encoder &scroll_horizontal_encoder>;
+
         QWERTY {
             bindings = <
 &kp ESC           &kp N1        &kp N2        &kp N3     &kp N4      &kp N5            &kp N6          &kp N7  &kp N8     &kp N9          &kp N0        &kp BACKSPACE
@@ -61,24 +57,16 @@
 &kp LEFT_SHIFT    &kp Z         &kp X         &kp C      &kp V       &kp B             &kp N           &kp M   &kp COMMA  &kp DOT         &kp UP_ARROW  &kp FSLH
 &kp LEFT_CONTROL  &kp LEFT_WIN  &kp LEFT_ALT  &kp SPACE  &kp DELETE  &kp INT_MUHENKAN  &kp INT_HENKAN  &mo 2   &kp SPACE  &kp LEFT_ARROW  &kp DOWN      &kp RETURN
             >;
-
-            sensor-bindings =
-                <&inc_dec_kp LC(MINUS) LC(PLUS)>,
-                <&inc_dec_kp PG_UP PG_DN>;
         };
 
         F_layers {
             bindings = <
-&kp F12  &kp F1  &kp F2  &kp F3    &kp F4    &kp F5  &kp F6     &kp F7     &kp F8          &kp F9           &kp F10  &kp F11
-&kp A    &none   &none   &mkp MB2  &mkp MB1  &trans  &mkp MB1   &mkp MB2   &kp UP          &trans           &trans   &trans
-&trans   &none   &none   &none     &none     &trans  &mkp LCLK  &kp LEFT   &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans   &trans
-&trans   &trans  &trans  &trans    &trans    &none   &none      &none      &trans          &trans           &none    &trans
-&trans   &trans  &trans  &trans    &trans    &trans  &mkp LCLK  &mkp RCLK  &trans          &trans           &trans   &bootloader
+&kp F12  &kp F1  &kp F2  &kp F3    &kp F4    &kp F5  &kp F6     &kp F7     &kp F8          &kp F9          &kp F10  &kp F11
+&kp A    &none   &none   &mkp MB2  &mkp MB1  &trans  &mkp MB1   &mkp MB2   &kp UP          &trans          &trans   &trans
+&trans   &none   &none   &none     &none     &trans  &mkp LCLK  &kp LEFT   &kp DOWN_ARROW  &kp RIGHT_ARROW &trans   &trans
+&trans   &trans  &trans  &trans    &trans    &none   &none      &none      &trans          &trans          &none    &trans
+&trans   &trans  &trans  &trans    &trans    &trans  &mkp LCLK  &mkp RCLK  &trans          &trans          &trans   &bootloader
             >;
-
-            sensor-bindings =
-                <&inc_dec_kp LC(PLUS) LC(MINUS)>,
-                <&inc_dec_kp PG_UP PG_DN>;
         };
 
         BT_layers {
@@ -89,51 +77,6 @@
 &trans       &trans          &trans        &bt BT_CLR    &trans        &trans        &bt BT_NXT  &trans  &trans  &trans  &trans  &trans
 &bootloader  &trans          &trans        &trans        &trans        &trans        &trans      &trans  &trans  &trans  &trans  &bootloader
             >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
-        };
-
-        scroll-layers {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
-        };
-
-        snipe-layers {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-            >;
-
-            sensor-bindings =
-                <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,,,,,
-                <&scroll_horizontal_encoder>;
-
-            // 编码器2：左右滚动
-        };
-
-        layer_5 {
-            bindings = <
-&kp ESC           &kp N1        &kp N2        &kp N3     &kp N4      &kp N5            &kp N6          &kp N7  &kp N8     &kp N9          &kp N0        &kp BACKSPACE
-&kp TAB           &kp Q         &kp W         &kp E      &kp R       &kp T             &kp Y           &kp U   &kp I      &kp O           &kp P         &kp BSLH
-&mo 1             &kp A         &kp S         &kp D      &kp F       &kp G             &kp H           &kp J   &kp K      &kp L           &kp SEMI      &kp SQT
-&kp LEFT_SHIFT    &kp Z         &kp X         &kp C      &kp V       &kp B             &kp N           &kp M   &kp COMMA  &kp DOT         &kp UP_ARROW  &kp FSLH
-&kp LEFT_CONTROL  &kp LEFT_WIN  &kp LEFT_ALT  &kp SPACE  &kp DELETE  &kp INT_MUHENKAN  &kp INT_HENKAN  &mo 2   &kp SPACE  &kp LEFT_ARROW  &kp DOWN      &kp RETURN
-            >;
-
-            sensor-bindings =
-                <&inc_dec_kp LC(MINUS) LC(PLUS)>,
-                <&inc_dec_kp PG_UP PG_DN>;
         };
     };
 };
