@@ -55,11 +55,11 @@
 
         QWERTY {
             bindings = <
-&kp ESC           &kp N1        &kp N2        &kp N3       &kp N4      &kp N5   &kp N6   &kp N7     &kp N8       &kp N9    &kp N0     &kp BACKSPACE
-&kp TAB           &kp Q         &kp W         &kp E        &kp R       &kp T    &kp Y    &kp U      &kp I        &kp O     &kp P      &kp BSLH
-&tog 1            &kp A         &kp S         &kp D        &kp F       &kp G    &kp H    &kp J      &kp K        &kp L     &kp SEMI   &kp SQT
-&kp LEFT_SHIFT    &kp Z         &kp X         &kp C        &kp V       &kp B    &kp N    &kp M      &kp COMMA    &kp DOT   &kp MINUS  &kp FSLH
-&kp LEFT_CONTROL  &kp LEFT_WIN  &kp LEFT_ALT  &lt 1 SPACE  &kp DELETE  &kp F13  &kp F14  &kp ENTER  &lt 2 SPACE  &kp FSLH  &kp EQUAL  &kp RETURN
+&kp ESC           &kp N1        &kp N2        &kp N3       &kp N4      &kp N5   &kp N6   &kp NUMBER_7  &kp N8       &kp N9    &kp N0     &kp BACKSPACE
+&kp TAB           &kp Q         &kp W         &kp E        &kp R       &kp T    &kp Y    &kp U         &kp I        &kp O     &kp P      &kp BSLH
+&tog 1            &kp A         &kp S         &kp D        &kp F       &kp G    &kp H    &kp J         &kp K        &kp L     &kp SEMI   &kp SQT
+&kp LEFT_SHIFT    &kp Z         &kp X         &kp C        &kp V       &kp B    &kp N    &kp M         &kp COMMA    &kp DOT   &kp MINUS  &kp FSLH
+&kp LEFT_CONTROL  &kp LEFT_WIN  &kp LEFT_ALT  &lt 1 SPACE  &kp DELETE  &kp F13  &kp F14  &kp ENTER     &lt 2 SPACE  &kp FSLH  &kp EQUAL  &kp RETURN
             >;
 
             sensor-bindings = <&scroll_vertical_encoder &scroll_horizontal_encoder>;
@@ -67,11 +67,11 @@
 
         F_layers {
             bindings = <
-&kp F12         &kp F1          &kp F2           &kp F3  &kp F4    &kp F5    &kp F6     &kp F7     &kp F8          &kp F9          &kp F10           &kp F11
-&kp A           &none           &none            &none   &mkp MB2  &mkp MB1  &none      &none      &none           &none           &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-&none           &none           &none            &none   &none     &none     &mkp LCLK  &mkp MB1   &mkp MB2        &mmv MOVE_UP    &mmv MOVE_RIGHT   &none
-&bootloader     &msc SCRL_UP    &none            &none   &none     &none     &none      &none      &mmv MOVE_LEFT  &mmv MOVE_DOWN  &kp UP            &bootloader
-&msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans  &trans    &trans    &mkp LCLK  &mkp RCLK  &trans          &kp LEFT_ARROW  &kp DOWN          &kp RIGHT_ARROW
+&kp F12         &kp F1          &kp F2           &kp F3  &kp F4           &kp F5             &kp F6     &kp F7     &kp F8          &kp F9          &kp F10           &kp F11
+&kp A           &none           &none            &none   &mkp MB2         &mkp MB1           &none      &none      &none           &none           &kp LEFT_BRACKET  &kp RIGHT_BRACKET
+&none           &none           &none            &none   &none            &none              &mkp LCLK  &mkp MB1   &mkp MB2        &mmv MOVE_UP    &mmv MOVE_RIGHT   &none
+&bootloader     &msc SCRL_UP    &none            &none   &kp LC(PAGE_UP)  &kp LC(PAGE_DOWN)  &none      &none      &mmv MOVE_LEFT  &mmv MOVE_DOWN  &kp UP            &bootloader
+&msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans  &trans           &trans             &mkp LCLK  &mkp RCLK  &trans          &kp LEFT_ARROW  &kp DOWN          &kp RIGHT_ARROW
             >;
 
             sensor-bindings = <&inc_dec_kp LC(PLUS) LC(MINUS) &inc_dec_kp PG_UP PG_DN>;
