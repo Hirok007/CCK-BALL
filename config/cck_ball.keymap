@@ -67,11 +67,11 @@
 
         F_layers {
             bindings = <
-&kp F12         &kp F1          &kp F2           &kp F3  &kp F4           &kp F5             &kp F6     &kp F7     &kp F8          &kp F9          &kp F10           &kp F11
-&kp A           &none           &none            &none   &mkp MB2         &mkp MB1           &none      &none      &none           &none           &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-&none           &none           &none            &none   &none            &none              &mkp LCLK  &mkp MB1   &mkp MB2        &mmv MOVE_UP    &mmv MOVE_RIGHT   &none
-&bootloader     &msc SCRL_UP    &none            &none   &kp LC(PAGE_UP)  &kp LC(PAGE_DOWN)  &none      &none      &mmv MOVE_LEFT  &mmv MOVE_DOWN  &kp UP            &bootloader
-&msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans  &trans           &trans             &mkp LCLK  &mkp RCLK  &trans          &kp LEFT_ARROW  &kp DOWN          &kp RIGHT_ARROW
+&kp F12         &kp F1          &kp F2           &kp F3  &kp F4           &kp F5             &kp F6          &kp F7          &kp F8          &kp F9           &kp F10           &kp F11
+&kp A           &none           &none            &none   &mkp MB2         &mkp MB1           &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP    &msc SCRL_RIGHT  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
+&none           &none           &none            &none   &none            &none              &mkp LCLK       &mkp MB1        &mkp MB2        &mmv MOVE_UP     &mmv MOVE_RIGHT   &none
+&bootloader     &msc SCRL_UP    &none            &none   &kp LC(PAGE_UP)  &kp LC(PAGE_DOWN)  &none           &none           &mmv MOVE_LEFT  &mmv MOVE_DOWN   &kp UP            &bootloader
+&msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans  &trans           &trans             &mkp LCLK       &mkp RCLK       &trans          &kp LEFT_ARROW   &kp DOWN          &kp RIGHT_ARROW
             >;
 
             sensor-bindings = <&inc_dec_kp LC(PLUS) LC(MINUS) &inc_dec_kp PG_UP PG_DN>;
