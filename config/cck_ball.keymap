@@ -83,7 +83,7 @@
 
         F_layers {
             bindings = <
-&kp ESCAPE        &kp F1          &kp F2          &kp F3           &kp F4           &kp F5             &kp F6        &kp F7        &kp F8        &kp F9          &kp F10           &kp F11
+&kp A             &kp F1          &kp F2          &kp F3           &kp F4           &kp F5             &kp F6        &kp F7        &kp F8        &kp F9          &kp F10           &kp F11
 &kp A             &kp EQUAL       &kp SLASH       &kp ASTERISK     &kp MINUS        &kp PLUS           &mkp MB1      &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9    &kp LEFT_BRACKET  &kp RIGHT_BRACKET
 &to 0             &kp ENTER       &msc SCRL_UP    &mkp MB2         &mkp MB1         &kp TAB            &mkp MB2      &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6    &kp ENTER         &kp ENTER
 &bootloader       &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &kp LC(PAGE_UP)  &kp LC(PAGE_DOWN)  &kp NUMBER_0  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3    &kp UP            &bootloader
