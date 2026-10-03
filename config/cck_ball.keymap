@@ -71,11 +71,11 @@
 
         QWERTY {
             bindings = <
-&kp ESC           &kp N1        &kp N2        &kp N3       &kp N4      &kp N5   &kp N6   &kp NUMBER_7  &kp N8       &kp N9    &kp N0     &kp BACKSPACE
-&kp TAB           &kp Q         &kp W         &kp E        &kp R       &kp T    &kp Y    &kp U         &kp I        &kp O     &kp P      &kp BSLH
-&to 1             &kp A         &kp S         &kp D        &kp F       &kp G    &kp H    &kp J         &kp K        &kp L     &kp SEMI   &kp SQT
-&kp LEFT_SHIFT    &kp Z         &kp X         &kp C        &kp V       &kp B    &kp N    &kp M         &kp COMMA    &kp DOT   &kp MINUS  &kp FSLH
-&kp LEFT_CONTROL  &kp LEFT_WIN  &kp LEFT_ALT  &lt 1 SPACE  &kp DELETE  &kp F13  &kp F14  &kp ENTER     &lt 2 SPACE  &kp FSLH  &kp EQUAL  &kp RETURN
+&kp ESC           &kp F1        &kp F2        &kp F3       &kp F4      &kp F5   &kp F6   &kp F7     &kp F8       &kp F9    &kp F10                  &kp BACKSPACE
+&kp TAB           &kp Q         &kp W         &kp E        &kp R       &kp T    &kp Y    &kp U      &kp I        &kp O     &kp P                    &kp MINUS
+&to 1             &kp A         &kp S         &kp D        &kp F       &kp G    &kp H    &kp J      &kp K        &kp L     &kp SEMI                 &kp ENTER
+&kp LEFT_SHIFT    &kp Z         &kp X         &kp C        &kp V       &kp B    &kp N    &kp M      &kp COMMA    &kp DOT   &kp KP_LEFT_PARENTHESIS  &kp KP_RIGHT_PARENTHESIS
+&kp LEFT_CONTROL  &kp LEFT_WIN  &kp LEFT_ALT  &lt 1 SPACE  &kp DELETE  &kp F13  &kp F14  &kp ENTER  &lt 2 SPACE  &kp FSLH  &kp EQUAL                &kp BACKSLASH
             >;
 
             sensor-bindings = <&scroll_vertical_encoder &scroll_horizontal_encoder>;
@@ -83,11 +83,11 @@
 
         F_layers {
             bindings = <
-&kp ESCAPE        &kp F1          &kp F2          &kp F3           &kp F4           &kp F5             &kp F6        &kp F7        &kp F8        &kp F9          &kp F10           &kp F11
-&kp A             &kp EQUAL       &kp SLASH       &kp ASTERISK     &kp MINUS        &kp PLUS           &mkp MB1      &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9    &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-&to 0             &kp ENTER       &msc SCRL_UP    &mkp MB2         &mkp MB1         &kp TAB            &mkp MB2      &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6    &kp ENTER         &kp ENTER
-&bootloader       &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &kp LC(PAGE_UP)  &kp LC(PAGE_DOWN)  &kp NUMBER_0  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3    &kp UP            &bootloader
-&kp LEFT_CONTROL  &kp LS(LG(S))   &kp F12         &kp LC(X)        &kp LC(C)        &kp LC(V)          &mkp LCLK     &mkp RCLK     &trans        &kp LEFT_ARROW  &kp DOWN          &kp RIGHT_ARROW
+&kp ESCAPE        &kp F1         &kp F2          &kp F3          &kp F4           &kp F5             &kp F6     &kp F7     &kp F8    &kp F9        &kp F10  &kp F11
+&kp TAB           &kp EQUAL      &kp SLASH       &kp UP_ARROW    &kp MINUS        &kp PLUS           &none      &mkp MB3   &none     &kp NUMBER_7  &kp N8   &kp N9
+&to 0             &kp ENTER      &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp TAB            &none      &mkp MB1   &mkp MB2  &kp N4        &kp N5   &kp N6
+&kp LEFT_SHIFT    &none          &none           &none           &kp LC(PAGE_UP)  &kp LC(PAGE_DOWN)  &none      &none      &none     &kp N1        &kp N2   &kp N3
+&kp LEFT_CONTROL  &kp LS(LG(S))  &kp F12         &kp LC(X)       &kp LC(C)        &kp LC(V)          &mkp LCLK  &mkp RCLK  &to 2     &kp N0        &kp N0   &kp ENTER
             >;
 
             sensor-bindings = <&inc_dec_kp LC(PLUS) LC(MINUS) &inc_dec_kp PG_UP PG_DN>;
@@ -97,9 +97,9 @@
             bindings = <
 &new_macro1  &bt BT_SEL 0      &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3      &bt BT_SEL 4     &trans      &trans  &trans  &trans  &trans  &kp W
 &none        &trans            &trans        &trans        &none             &trans           &trans      &trans  &trans  &trans  &trans  &trans
-&trans       &bt BT_CLR_ALL    &trans        &none         &none             &none            &trans      &trans  &trans  &trans  &trans  &trans
+&to 0        &bt BT_CLR_ALL    &trans        &none         &none             &none            &trans      &trans  &trans  &trans  &trans  &trans
 &trans       &trans            &trans        &bt BT_CLR    &kp LC(KP_MINUS)  &kp LC(KP_PLUS)  &bt BT_NXT  &trans  &trans  &trans  &trans  &trans
-&bootloader  &kp LG(NUMBER_1)  &kp LC(T)     &trans        &trans            &trans           &trans      &trans  &trans  &trans  &trans  &bootloader
+&bootloader  &kp LG(NUMBER_1)  &kp LC(T)     &trans        &trans            &trans           &trans      &trans  &to 1   &trans  &trans  &bootloader
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
