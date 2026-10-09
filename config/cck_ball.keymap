@@ -86,7 +86,7 @@
 &kp ESCAPE        &kp F1         &kp F2          &kp F3          &kp F4           &kp F5             &kp F6     &kp F7     &kp F8    &kp F9        &kp F10  &kp F11
 &kp TAB           &kp EQUAL      &kp SLASH       &kp UP_ARROW    &kp MINUS        &kp PLUS           &none      &mkp MB3   &none     &kp NUMBER_7  &kp N8   &kp N9
 &to 0             &kp ENTER      &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp TAB            &none      &mkp MB1   &mkp MB2  &kp N4        &kp N5   &kp N6
-&kp LEFT_SHIFT    &none          &none           &none           &kp LC(PAGE_UP)  &kp LC(PAGE_DOWN)  &none      &none      &none     &kp N1        &kp N2   &kp N3
+&kp LEFT_SHIFT    &none          &none           &none           &kp LC(PAGE_UP)  &kp LC(PAGE_DOWN)  &none      &kp LBKT   &kp RBKT  &kp N1        &kp N2   &kp N3
 &kp LEFT_CONTROL  &kp LS(LG(S))  &kp F12         &kp LC(X)       &kp LC(C)        &kp LC(V)          &mkp LCLK  &mkp RCLK  &to 2     &kp N0        &kp N0   &kp ENTER
             >;
 
